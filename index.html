@@ -1,17 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Calculadora de Calorias para pets</title>
 </head>
-<body>
-    <header>
-        Calculadora de Calorias para pets
-    </header>
+<body onclick="calcular()" onforminput="calcular()">
     <main>
-        
+        <form action="post" id="formulario_principal">
+            <p>
+                <input type="radio" name="especie" id="input_cao" value="cao">
+                <label for="input_cao">
+                    Cachorro
+                </label>
+                <input type="radio" name="especie" id="input_gato" value="gato">
+                <label for="input_gato">
+                    Gato
+                </label>
+            </p>
+            <p>
+            <label for="input_peso">
+                Peso: 
+                </label>
+                <input type="number" id="input_peso" min="0">
+            </p>
+            <p>
+                <label for="input_hospitalizado">
+                    Está hospitalizado?
+                </label>
+                <input type="checkbox" id="input_hospitalizado" onclick="alternarFormularioHospitlaizado()" checked>
+            </p>
+            <p id="formulario_hospitalizado" class="formulario_on">
+                <label for="politraumatismo">
+                    Politraumatismo?
+                </label>
+                <input type="checkbox" name="" id="input_politraumatismo">
+            </p>
+        </form>
+        <article>
+            <span  id="resultado"></span>
+        </article>
     </main>
+    <footer></footer>
+    <script src="script.js"></script>
 </body>
 </html>
