@@ -106,7 +106,7 @@ function calcularNEM(animal) {
         animal['NEM'] = calcularNEMGato(animal);
     };
 
-    return animal['NEM'];
+    return animal.NEM;
 };
 
 function calcular(animal) {
@@ -115,12 +115,12 @@ function calcular(animal) {
     calcularNEB(animal);
 
     if (animal['peso'] == 0) {
-        tag_resultado.innerHTML = 'Escolha o peso';
+        tag_resultado.innerHTML = 'Digite o peso';
         return null;
     }
 
     if (animal['especie'] == '') {
-        tag_resultado.innerHTML = 'Escolha a espécie';
+        tag_resultado.innerHTML = 'Escolha uma espécie';
         return null;
     };
 
@@ -130,3 +130,10 @@ function calcular(animal) {
     tag_resultado.innerHTML = resultado_kcal + ' kCal <br>' + latas;
     return null;
 };
+
+//pop-up teste
+
+function mostrarPopUp() {
+    var popup = document.getElementById("popup_id");
+    popup.classList.toggle("mostrar");
+  }

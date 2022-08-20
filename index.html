@@ -9,7 +9,7 @@
 </head>
 <body onclick="calcular(animal)" onforminput="calcular()">
     <header>
-        <h1>Calculadora de Calorias para Pets</h1>
+        <h1 >Calculadora de Calorias para Pets</h1>
     </header>
     <main>
         <form action="post" id="formulario_principal">
@@ -59,12 +59,17 @@
             </div>
         </form>
         <article>
-            <span  id="resultado">
+            <span id="resultado">
                 Calcule as refeições!
             </span>
         </article>
+        <div class="popup" onclick="mostrarPopUp()">Teste de Pop-up
+            <span class="popuptext" id="popup_id">Texto qualquer...</span>
+        </div>
     </main>
-    <footer></footer>
+    <footer>
+        
+    </footer>
     <script src="script.js"></script>
 </body>
 </html>
