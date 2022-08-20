@@ -1,6 +1,8 @@
 const Recovery_Lata = 255.84;
+const G_recovery_Lata = 195;
 const Salute_Ml = 1;
 const GI_Lata = 415;
+const G_GI_Lata = 400;
 
 var animal = {
     nome: 'tupac',
@@ -86,15 +88,18 @@ function calcularNEMGato(animal) {
 function calcularRacoes(animal) {
     latas_recovery_neb = (animal.NEB / Recovery_Lata).toFixed(1);
     latas_recovery_nem = (animal.NEM / Recovery_Lata).toFixed(1);
+    var g_recovrey_neb = latas_recovery_neb * G_recovery_Lata;
 
     ml_salute_nem = animal.NEM;
     ml_salute_neb = animal.NEB.toFixed(1);
 
     latas_GI_nem = (animal.NEM / GI_Lata).toFixed(1);
     latas_GI_neb = (animal.NEB / GI_Lata).toFixed(1);
+    var g_GI_neb = latas_GI_neb * G_GI_Lata;
 
-    tag_racoes = '<p>' + ml_salute_nem + ' mL de salute </p><p> ' + latas_recovery_nem 
-    + ' latas de recovery</p><p>' + latas_GI_nem + ' latas GI</p>';
+    tag_racoes = '<p>' + ml_salute_nem + 'mL de salute </p><p>'
+    + latas_GI_neb + ' latas de GI</p><p>' + g_GI_neb + 'g de GI<p></p>' + latas_recovery_nem + ' latas de recovery</p><p>'
+    + g_recovrey_neb + 'g de recovery</p>';
 
     return tag_racoes;
 };
