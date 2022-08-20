@@ -1,61 +1,95 @@
+var animal = {
+    nome: 'tupac',
+    especie: '',
+    NEB: 0,
+};
 var input_peso = document.getElementById('input_peso');
 var tag_resultado = document.getElementById('resultado');
 var input_cao = document.getElementById('input_cao');
 var input_gato = document.getElementById('input_gato');
-var  input_hospitalizado = document.getElementById('input_hospitalizado');
+var input_hospitalizado = document.getElementById('input_hospitalizado');
 var input_politraumatismo = document.getElementById('input_politraumatismo');
+var input_hipofagia = document.getElementById('input_hipofagia');
 var formulario_hospitalizado = document.getElementById('formulario_hospitalizado');
+var input_emese = document.getElementById('input_emese');
 
 
 
 function alternarFormularioHospitlaizado() {
-    formulario_hospitalizado.classList.toggle('input_hospitalizado_off');
+    if (input_hospitalizado.checked) {
+        formulario_hospitalizado.className = 'input_hospitalizado_on';
+    }
+    else {
+        formulario_hospitalizado.className = 'input_hospitalizado_off';
+}
 };
 
-function calcular() {
-    if (input_peso.value == 0) {
-        var tag_total_kcal = 'Preencha o peso';
-        tag_resultado.innerHTML = tag_total_kcal;
-        
-        return null;    //quebra do if
-    }
+function pegar_input() {
+    animal['peso'] = parseInt(input_peso.value);
 
     if (input_cao.checked) {
-        var total_kcal = calcularNEB();
-        var tag_total_kcal = total_kcal + ' kCal';
+        animal['especie'] = 'cao';
     }
 
     else if (input_gato.checked) {
-        var total_kcal = calcularNEMGato();
-        var tag_total_kcal = total_kcal + ' kCal';
-        }
-    
-    else {
-        tag_total_kcal = 'Selecione a espécie';
-        tag_resultado.innerHTML = tag_total_kcal;
-
-        return null;
+        animal['especie'] = 'gato';
     };
 
     if (input_hospitalizado.checked) {
-        tag_total_kcal = tag_total_kcal + ' e está hosp';
+        animal['hospitalizado'] = true;
+    }
+    else {
+        animal['hospitalizado'] = false;
+    };    
+
+    if (input_hipofagia.checked) {
+        animal['hipofagia'] = true;
+    }
+    else {
+        animal['hipofagia'] = false;
     };
 
-    tag_resultado.innerHTML = tag_total_kcal;   //adiciona tag final no DOM
+    if (input_emese.checked){
+        animal['emese'] = true;
+    }
+    else {
+        animal['emese'] = false;
+    };
+
+    return animal
 };
 
-function calcularNEB() {
-    let neb =  70 * (input_peso.value ** 0.75);
-    return Math.round(neb);
+function calcularNEB(animal) {
+    animal['NEB'] =  70 * (animal['peso'] ** 0.75);
+    return Math.round(animal['NEB']);
 };
 
-function calcularNEMCao() {
-    let neb =  70 * (input_peso.value ** 0.75);
-    return Math.round(neb);
+function calcularNEMCao(animal) {
+    animal['NEM'] =  70 * (animal['peso'] ** 0.75);
+    return Math.round(animal['NEM']);
 };
 
-function calcularNEMGato() {
-    let neb =  70 * (input_peso.value ** 0.67);
-    return Math.round(neb);
+function calcularNEMGato(animal) {
+    animal['NEM'] =  70 * (animal['peso'] ** 0.67);
+    return Math.round(animal['NEM']);
 };
 
+function calcularRacoes(animal) {
+    
+};
+
+function calcularNEM(animal) {
+    if (animal['especie'] == 'cao') {
+        animal['NEM'] = calcularNEMCao(animal);
+    } else {
+        animal['NEM'] = calcularNEMGato(animal);
+    };
+
+    return animal['NEM'];
+};
+
+function calcular(animal) {
+    calcularNEM(pegar_input());
+    animal['NEB'] = calcularNEB(animal);
+    tag_resultado.innerHTML = animal['NEB'] + ' kCal';
+};

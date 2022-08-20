@@ -35,7 +35,7 @@ form {
     color: whitesmoke;
     background: gray;
     border-radius: 20px;
-    padding: 5px;
+    padding: 10px 30px;
     justify-content: space-around;
 }
 
@@ -45,7 +45,11 @@ input {
 }
 
 label {
-    margin-left: 10px;
+    margin-left: 14px;
+}
+
+.label_radio {
+    margin-left: -1px;
 }
 
 
@@ -61,4 +65,8 @@ label {
 
 .input_hospitalizado_off {
     display: none;
+}
+
+.input_hospitalizado_on {
+    display: block;
 }
