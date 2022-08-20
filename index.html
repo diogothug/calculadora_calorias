@@ -24,10 +24,11 @@
             <label for="input_peso">
                 Peso: 
                 </label>
-                <input type="number" id="input_peso" min="0">
+                <input type="number" id="input_peso" min="0" onchange="calcular(animal)" 
+                onkeypress="calcular(animal)">
             </p>
             <p>
-                <label for="input_hospitalizado">
+                <label for="input_hospitalizado" class="hospitalizado" style="display: none;">
                     Está hospitalizado?
                 </label>
                 <input type="checkbox" id="input_hospitalizado"
@@ -55,7 +56,9 @@
             </div>
         </form>
         <article>
-            <span  id="resultado"></span>
+            <span  id="resultado">
+                Calcule as refeições!
+            </span>
         </article>
     </main>
     <footer></footer>
