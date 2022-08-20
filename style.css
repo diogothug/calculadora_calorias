@@ -8,10 +8,23 @@ body{
     text-align: center;
 }
 
+header {
+    background-color:black;
+    color: whitesmoke;
+    flex: content;
+    display: block;
+    height: max-content;
+    width: 100%;
+    margin: 0;
+    border: 0;
+    padding: 0;
+}
+
 main {
-    height: 200px;
-    margin: 50px;
-    width: 75%;
+    height: max-content;
+    margin: 1%;
+    border: 0;
+    width: 100%;
     min-width: 300px;
     display: flex;
     flex-direction: column;
