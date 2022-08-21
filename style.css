@@ -9,6 +9,10 @@ body{
     text-align: center;
 }
 
+.superOff {
+    display: none !important;
+}
+
 header {
     display: flex;
     background-color:black;
@@ -51,7 +55,7 @@ article {
     width:fit-content;
     min-width: 200px;
     max-width: 400px;
-    margin: 10px 0px;
+    margin: 10px 10px;
     padding-top: 15px;
     padding-bottom: 15px;
     border-radius: 20px;
@@ -111,6 +115,13 @@ input[type="number"] {
     text-align: center;
     justify-content: center;
     -moz-appearance: textfield;
+}
+
+.resultados {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: stretch;
 }
 
 /* Chrome, Safari, Edge, Opera  retirar botoes do input number*/

@@ -11,7 +11,10 @@ var animal = {
     peso: 0,
 };
 var input_peso = document.getElementById('input_peso');
-var tag_resultado = document.getElementById('resultado');
+var div_resultado_neb = document.getElementById('resultado_neb');
+var article_resultado_neb = document.getElementById('article_neb');
+var div_resultado_nem = document.getElementById('resultado_nem');
+var article_resultado_nem = document.getElementById('article_nem');
 var input_cao = document.getElementById('input_cao');
 var input_gato = document.getElementById('input_gato');
 var input_score = document.getElementById('input_score');
@@ -88,6 +91,7 @@ function calcularRacoes(animal) {
     var latas_recovery_neb = (animal.NEB / Recovery_Lata).toFixed(2);
     var latas_recovery_nem = (animal.NEM / Recovery_Lata).toFixed(2);
     var g_recovrey_neb = (latas_recovery_neb * G_recovery_Lata).toFixed(1);
+    var g_recovrey_nem = (latas_recovery_nem * G_recovery_Lata).toFixed(1);
 
     var ml_salute_nem = animal.NEM;
     var ml_salute_neb = (animal.NEB).toFixed(2);
@@ -95,10 +99,17 @@ function calcularRacoes(animal) {
     var latas_GI_nem = (animal.NEM / GI_Lata).toFixed(2);
     var latas_GI_neb = (animal.NEB / GI_Lata).toFixed(2);
     var g_GI_neb = (latas_GI_neb * G_GI_Lata).toFixed(1);
+    var g_GI_nem = (latas_GI_nem * G_GI_Lata).toFixed(1);
 
-    var tag_racoes = '<p id="ml_salute_neb">' + ml_salute_neb + 'mL de salute </p><p>'
+    var tag_racoes = {
+        neb: '<p id="ml_salute_neb">' + ml_salute_neb + 'mL de salute </p><p>'
     + latas_GI_neb + ' latas de GI</p><p>' + g_GI_neb + 'g de GI<p></p>' + latas_recovery_neb +
-    ' latas de recovery</p><p>' + g_recovrey_neb + 'g de recovery</p>';
+    ' latas de recovery</p><p>' + g_recovrey_neb + 'g de recovery</p>',
+
+        nem: '<p id="ml_salute_nem">' + ml_salute_nem + 'mL de salute </p><p>'
+    + latas_GI_nem + ' latas de GI</p><p>' + g_GI_nem + 'g de GI<p></p>' + latas_recovery_nem +
+    ' latas de recovery</p><p>' + g_recovrey_nem + 'g de recovery</p>',
+}
 
     return tag_racoes;
 };
@@ -119,12 +130,12 @@ function calcular(animal) {
     calcularNEB(animal);
 
     if (animal['peso'] == 0) {
-        tag_resultado.innerHTML = 'Digite o peso';
+        div_resultado_neb.innerHTML = 'Digite o peso';
         return null;
     };
 
     if (animal['especie'] == '') {
-        tag_resultado.innerHTML = 'Escolha uma espécie';
+        div_resultado_neb.innerHTML = 'Escolha uma espécie';
         return null;
     };
 
@@ -135,9 +146,18 @@ function calcular(animal) {
     var resultado_kcal_nem = parseFloat(animal.NEM);
     resultado_kcal_nem = resultado_kcal_nem.toFixed(1);
 
-    tag_resultado.innerHTML = resultado_kcal_neb + ' kCal (NEB) <br>' + resultado_kcal_nem +
-    ' kCal (NEM)' + racoes_calculadas;
+    div_resultado_neb.innerHTML = resultado_kcal_neb + ' kCal (NEB) <br>' + racoes_calculadas.neb;
+
+    div_resultado_nem.innerHTML = resultado_kcal_nem +
+    ' kCal (NEM)' + racoes_calculadas.nem;
+
+
+    mostrarResultadoNEM();
     return null;
+};
+
+function mostrarResultadoNEM() {
+    article_resultado_nem.className = 'div_resultados';
 };
 
 //pop-up teste
