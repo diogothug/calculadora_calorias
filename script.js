@@ -72,32 +72,32 @@ function pegar_input() {
 
 function calcularNEB(animal) {
     animal['NEB'] =  100 * (animal['peso'] ** 0.75);
-    return (animal['NEB']).toFixed(1);
+    return (animal['NEB']).toFixed(2);
 };
 
 function calcularNEMCao(animal) {
     animal['NEM'] =  100 * (animal['peso'] ** 0.75);
-    return (animal['NEM']).toFixed(1);
+    return (animal['NEM']).toFixed(2);
 };
 
 function calcularNEMGato(animal) {
     animal['NEM'] =  100 * (animal['peso'] ** 0.67);
-    return (animal['NEM']).toFixed(1);
+    return (animal['NEM']).toFixed(2);
 };
 
 function calcularRacoes(animal) {
-    latas_recovery_neb = (animal.NEB / Recovery_Lata).toFixed(1);
-    latas_recovery_nem = (animal.NEM / Recovery_Lata).toFixed(1);
-    var g_recovrey_neb = latas_recovery_neb * G_recovery_Lata;
+    var latas_recovery_neb = (animal.NEB / Recovery_Lata).toFixed(2);
+    var latas_recovery_nem = (animal.NEM / Recovery_Lata).toFixed(2);
+    var g_recovrey_neb = (latas_recovery_neb * G_recovery_Lata).toFixed(1);
 
-    ml_salute_nem = animal.NEM;
-    ml_salute_neb = animal.NEB.toFixed(1);
+    var ml_salute_nem = animal.NEM;
+    var ml_salute_neb = animal.NEB;
 
-    latas_GI_nem = (animal.NEM / GI_Lata).toFixed(1);
-    latas_GI_neb = (animal.NEB / GI_Lata).toFixed(1);
-    var g_GI_neb = latas_GI_neb * G_GI_Lata;
+    var latas_GI_nem = (animal.NEM / GI_Lata).toFixed(2);
+    var latas_GI_neb = (animal.NEB / GI_Lata).toFixed(2);
+    var g_GI_neb = (latas_GI_neb * G_GI_Lata).toFixed(1);
 
-    tag_racoes = '<p id="ml_salute_neb">' + ml_salute_nem + 'mL de salute </p><p>'
+    var tag_racoes = '<p id="ml_salute_neb">' + ml_salute_nem + 'mL de salute </p><p>'
     + latas_GI_neb + ' latas de GI</p><p>' + g_GI_neb + 'g de GI<p></p>' + latas_recovery_nem + ' latas de recovery</p><p>'
     + g_recovrey_neb + 'g de recovery</p>';
 
@@ -130,7 +130,8 @@ function calcular(animal) {
     };
 
     var latas = calcularRacoes(animal);
-    resultado_kcal = animal.NEM;
+    resultado_kcal = parseFloat(animal.NEM);
+    resultado_kcal = resultado_kcal.toFixed(1);
 
     tag_resultado.innerHTML = resultado_kcal + ' kCal <br>' + latas;
     return null;
