@@ -35,7 +35,6 @@ main {
     margin: 1%;
     border: 0;
     width: 100%;
-    min-width: 300px;
     display: flex;
     flex-direction: column;
     align-content: space-around;
@@ -67,7 +66,6 @@ footer {
 
 form {
     display:flex;
-    min-width: 100px;
     max-width: 400px;
     height: fit-content;
     flex-wrap: wrap;
@@ -77,6 +75,7 @@ form {
     border-radius: 20px;
     padding: 10px 30px;
     justify-content: space-around;
+    align-content: center;
     text-align: center;
     align-items: baseline;
 }
@@ -86,7 +85,12 @@ form {
     flex: content;
     width: 100%;
     justify-content: space-evenly;
-    align-items: center;
+    align-items: flex-start;
+    padding: 5px 0px 0px 20px;
+}
+
+label[for='input_peso'] {
+    margin-left: 30px;
 }
 
 input {
@@ -104,10 +108,19 @@ input:selection {
     outline: none;
 }
 
-label {
-    margin-left: 14px;
+input[type="number"] {
+    width: 90px;
+    height: 20px;
     text-align: center;
-    display: block
+    justify-content: center;
+}
+
+input[type="range"] {
+    min-width: 60px;
+    max-width: 120px;
+    margin-left: 10px;
+    justify-self: center;
+    align-self: center;
 }
 
 .label_radio {

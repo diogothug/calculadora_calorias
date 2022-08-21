@@ -17,7 +17,6 @@ var input_gato = document.getElementById('input_gato');
 var input_score = document.getElementById('input_score');
 var input_atividade = document.getElementById('input_atividade');
 
-var input_hospitalizado = document.getElementById('input_hospitalizado');
 var input_politraumatismo = document.getElementById('input_politraumatismo');
 var input_hipofagia = document.getElementById('input_hipofagia');
 var formulario_hospitalizado = document.getElementById('formulario_hospitalizado');
@@ -43,28 +42,7 @@ function pegar_input() {
 
     else if (input_gato.checked) {
         animal['especie'] = 'gato';
-    };
-
-    if (input_hospitalizado.checked) {
-        animal['hospitalizado'] = true;
-    }
-    else {
-        animal['hospitalizado'] = false;
     };    
-
-    if (input_hipofagia.checked) {
-        animal['hipofagia'] = true;
-    }
-    else {
-        animal['hipofagia'] = false;
-    };
-
-    if (input_emese.checked){
-        animal['emese'] = true;
-    }
-    else {
-        animal['emese'] = false;
-    };
 
     if (input_peso.value == '') {
         animal['peso'] = 0;
