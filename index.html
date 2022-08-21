@@ -14,7 +14,7 @@
     </header>
     <main>
         <form action="post" id="formulario_principal">
-            <p>
+            <div class="div_formulario">
                 <input type="radio" name="especie" id="input_cao" value="cao">
                 <label for="input_cao" class="label_radio">
                     Cachorro
@@ -23,40 +23,23 @@
                 <label for="input_gato" class="label_radio">
                     Gato
                 </label>
-            </p>
-            <p>
-            <label for="input_peso">
-                Peso: 
+                <label for="input_peso">
+                    Peso: 
                 </label>
                 <input type="number" id="input_peso" min="0" step="0.1" onchange="calcular(animal)" 
-                onkeypress="calcular(animal)" onkeydown="return event.key != 'Enter';">
-            </p>
-            <p>
-                <label for="input_hospitalizado" class="hospitalizado" style="display: none;">
-                    Está hospitalizado?
+                    onkeypress="calcular(animal)" onkeydown="return event.key != 'Enter';">
+            </div>
+            <div class="div_formulario">
+                <label for="input_atividade">
+                    Atividade:
                 </label>
-                <input type="checkbox" id="input_hospitalizado"
-                 onclick="alternarFormularioHospitlaizado()">
-            </p>
-            <div id="formulario_hospitalizado" class="input_hospitalizado_off">
-                <p>
-                    <label for="politraumatismo">
-                        Politraumatismo?
-                    </label>
-                    <input type="checkbox" name="" id="input_politraumatismo">
-                </p>
-                <p>
-                    <label for="hipofagia" id="label_hipofagia">
-                        Hipofagia há 7 dias ou mais?
-                    </label>
-                    <input type="checkbox" name="" id="input_hipofagia">
-                </p>
-                <p>
-                    <label for="emese" id="label_hipofagia">
-                        Emese e/ou inapetencia há 3 dias ou mais?
-                    </label>
-                    <input type="checkbox" name="" id="input_emese">
-                </p>
+                <input type="range" id="input_atividade" min="1" max="5" step="1" onchange="calcular(animal)" 
+                onkeypress="calcular(animal)" onkeydown="return event.key != 'Enter';">
+                <label for="input_score">
+                    Score corporal:
+                </label>
+                <input type="range" id="input_score" min="1" max="5" step="1" onchange="calcular(animal)" 
+                onkeypress="calcular(animal)" onkeydown="return event.key != 'Enter';">
             </div>
         </form>
         <article>

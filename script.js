@@ -14,6 +14,9 @@ var input_peso = document.getElementById('input_peso');
 var tag_resultado = document.getElementById('resultado');
 var input_cao = document.getElementById('input_cao');
 var input_gato = document.getElementById('input_gato');
+var input_score = document.getElementById('input_score');
+var input_atividade = document.getElementById('input_atividade');
+
 var input_hospitalizado = document.getElementById('input_hospitalizado');
 var input_politraumatismo = document.getElementById('input_politraumatismo');
 var input_hipofagia = document.getElementById('input_hipofagia');
@@ -76,7 +79,25 @@ function calcularNEB(animal) {
 };
 
 function calcularNEMCao(animal) {
-    animal['NEM'] =  130 * (animal['peso'] ** 0.75);
+    var constante = 130;
+
+    if (parseInt(input_score.value) > 3) {                          //calculo por score corporal
+        constante = constante - (10 * parseInt(input_score.value));
+    }
+    else {
+        constante = constante + (30 - (10 * parseInt(input_score.value)));
+    };
+
+    if (parseInt(input_atividade.value) > 3) {                          //calculo por atividade
+        constante = constante + (10 * parseInt(input_atividade.value));
+    }
+
+    else if (parseInt(input_atividade.value) < 3) {
+        constante = constante - (30 - (10 * parseInt(input_atividade.value)));
+    };
+
+
+    animal['NEM'] =  constante * (animal['peso'] ** 0.75);
     return (animal['NEM']).toFixed(2);
 };
 
