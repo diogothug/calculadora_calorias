@@ -131,7 +131,6 @@ function calcular(animal) {
     pegar_input();
     calcularNEM(animal);
     calcularNEB(animal);
-    mudarTituloPets(animal);
 
     if (animal['peso'] == 0) {
         div_resultado_neb.innerHTML = 'Digite o peso';
