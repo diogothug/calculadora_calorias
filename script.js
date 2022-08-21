@@ -5,7 +5,7 @@ const GI_Lata = 415;
 const G_GI_Lata = 400;
 
 var animal = {
-    nome: 'tupac',
+    nome: 'Rex',
     especie: '',
     NEB: 0,
     peso: 0,
