@@ -98,8 +98,8 @@ function calcularRacoes(animal) {
     var g_GI_neb = (latas_GI_neb * G_GI_Lata).toFixed(1);
 
     var tag_racoes = '<p id="ml_salute_neb">' + ml_salute_nem + 'mL de salute </p><p>'
-    + latas_GI_neb + ' latas de GI</p><p>' + g_GI_neb + 'g de GI<p></p>' + latas_recovery_nem + ' latas de recovery</p><p>'
-    + g_recovrey_neb + 'g de recovery</p>';
+    + latas_GI_neb + ' latas de GI</p><p>' + g_GI_neb + 'g de GI<p></p>' + latas_recovery_nem +
+    ' latas de recovery</p><p>' + g_recovrey_neb + 'g de recovery</p>';
 
     return tag_racoes;
 };
@@ -122,18 +122,18 @@ function calcular(animal) {
     if (animal['peso'] == 0) {
         tag_resultado.innerHTML = 'Digite o peso';
         return null;
-    }
+    };
 
     if (animal['especie'] == '') {
         tag_resultado.innerHTML = 'Escolha uma espécie';
         return null;
     };
 
-    var latas = calcularRacoes(animal);
-    resultado_kcal = parseFloat(animal.NEM);
+    var racoes_calculadas = calcularRacoes(animal);
+    var resultado_kcal = parseFloat(animal.NEB);
     resultado_kcal = resultado_kcal.toFixed(1);
 
-    tag_resultado.innerHTML = resultado_kcal + ' kCal <br>' + latas;
+    tag_resultado.innerHTML = resultado_kcal + ' kCal <br>' + racoes_calculadas;
     return null;
 };
 
