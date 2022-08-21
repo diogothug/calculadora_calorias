@@ -47,11 +47,18 @@
                 onkeypress="calcular(animal)" onkeydown="return event.key != 'Enter';">
             </div>
         </form>
-        <article>
-            <span id="resultado">
-                Calcule as refeições!
-            </span>
-        </article>
+        <div class="resultados">
+            <article id="article_neb">
+                <div id="resultado_neb" class="div_resultados">
+                    Calcule as refeições!
+                </div>
+            </article>
+            <article id="article_nem" class="superOff">
+                <div id="resultado_nem">
+                    nem
+                </div>
+            </article>
+        </div>
         <div class="popup" onclick="mostrarPopUp()" style="display:none;">Teste de Pop-up
             <span class="popuptext" id="popup_id">Texto qualquer...</span>
         </div>
