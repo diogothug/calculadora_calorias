@@ -219,3 +219,28 @@ input[type="range"] {
     from {opacity: 0;}
     to {opacity:1 ;}
   }
+
+  /*animacao do titulo */
+
+
+.waviy {
+    background-color: #000000;
+  position: relative;
+}
+
+.waviy span {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  animation: waviy 3s 1;
+  animation-delay: calc(.4s * var(--i));
+  
+}
+@keyframes waviy {
+  0%,40%,100% {
+    transform: translateY(0)
+  }
+  20% {
+    transform: translateY(-20px)
+  }
+}

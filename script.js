@@ -10,6 +10,9 @@ var animal = {
     NEB: 0,
     peso: 0,
 };
+
+var span_pets = document.getElementById('span_pets');
+
 var input_peso = document.getElementById('input_peso');
 var div_resultado_neb = document.getElementById('resultado_neb');
 var article_resultado_neb = document.getElementById('article_neb');
@@ -128,6 +131,7 @@ function calcular(animal) {
     pegar_input();
     calcularNEM(animal);
     calcularNEB(animal);
+    mudarTituloPets(animal);
 
     if (animal['peso'] == 0) {
         div_resultado_neb.innerHTML = 'Digite o peso';
@@ -161,9 +165,24 @@ function mostrarResultadoNEM() {
     article_resultado_nem.className = 'div_resultados';
 };
 
+//mudar titulo de pets para cao ou gato
+
+function mudarTituloPets(animal) {
+    span_pets.className = 'waviy';
+    if (animal.especie == 'cao') {
+        span_pets.innerHTML = '<span style="--i:1">C</span><span style="--i:2">ã</span>'
+    + '<span style="--i:3">o</span>.';
+    }
+    else if(animal.especie == 'gato') {
+        span_pets.innerHTML = '<span style="--i:1">G</span><span style="--i:2">a</span>'
+    + '<span style="--i:3">t</span><span style="--i:4">o</span>.';
+    }
+
+};
+
 //pop-up teste
 
 function mostrarPopUp() {
     var popup = document.getElementById("popup_id");
     popup.classList.toggle("mostrar");
-  };
+};
