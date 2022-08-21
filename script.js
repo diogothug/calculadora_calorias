@@ -71,7 +71,7 @@ function pegar_input() {
 };
 
 function calcularNEB(animal) {
-    animal['NEB'] =  70 * (animal['peso'] ** 0.75);
+    animal['NEB'] =  100 * (animal['peso'] ** 0.75);
     return (animal['NEB']).toFixed(1);
 };
 
@@ -81,7 +81,7 @@ function calcularNEMCao(animal) {
 };
 
 function calcularNEMGato(animal) {
-    animal['NEM'] =  70 * (animal['peso'] ** 0.67);
+    animal['NEM'] =  100 * (animal['peso'] ** 0.67);
     return (animal['NEM']).toFixed(1);
 };
 
@@ -97,7 +97,7 @@ function calcularRacoes(animal) {
     latas_GI_neb = (animal.NEB / GI_Lata).toFixed(1);
     var g_GI_neb = latas_GI_neb * G_GI_Lata;
 
-    tag_racoes = '<p>' + ml_salute_nem + 'mL de salute </p><p>'
+    tag_racoes = '<p id="ml_salute_neb">' + ml_salute_nem + 'mL de salute </p><p>'
     + latas_GI_neb + ' latas de GI</p><p>' + g_GI_neb + 'g de GI<p></p>' + latas_recovery_nem + ' latas de recovery</p><p>'
     + g_recovrey_neb + 'g de recovery</p>';
 

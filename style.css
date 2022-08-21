@@ -10,6 +10,7 @@ body{
 }
 
 header {
+    display: flex;
     background-color:black;
     color: whitesmoke;
     flex: content;
@@ -19,6 +20,14 @@ header {
     margin: 0;
     border: 0;
     padding: 0;
+}
+
+.tituloPrincipal {
+    margin-bottom: 0;
+}
+
+header p {
+    margin-top: 0;
 }
 
 main {
@@ -114,6 +123,10 @@ label {
 
 .input_hospitalizado_on {
     display: block;
+}
+
+#ml_salute_neb {
+    color: whitesmoke;
 }
 
 
