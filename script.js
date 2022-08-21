@@ -76,7 +76,7 @@ function calcularNEB(animal) {
 };
 
 function calcularNEMCao(animal) {
-    animal['NEM'] =  100 * (animal['peso'] ** 0.75);
+    animal['NEM'] =  130 * (animal['peso'] ** 0.75);
     return (animal['NEM']).toFixed(2);
 };
 
@@ -130,10 +130,14 @@ function calcular(animal) {
     };
 
     var racoes_calculadas = calcularRacoes(animal);
-    var resultado_kcal = parseFloat(animal.NEB);
-    resultado_kcal = resultado_kcal.toFixed(1);
 
-    tag_resultado.innerHTML = resultado_kcal + ' kCal <br>' + racoes_calculadas;
+    var resultado_kcal_neb = parseFloat(animal.NEB);
+    resultado_kcal_neb = resultado_kcal_neb.toFixed(1);
+    var resultado_kcal_nem = parseFloat(animal.NEM);
+    resultado_kcal_nem = resultado_kcal_nem.toFixed(1);
+
+    tag_resultado.innerHTML = resultado_kcal_neb + ' kCal (NEB) <br>' + resultado_kcal_nem +
+    ' kCal (NEM)' + racoes_calculadas;
     return null;
 };
 
@@ -142,4 +146,4 @@ function calcular(animal) {
 function mostrarPopUp() {
     var popup = document.getElementById("popup_id");
     popup.classList.toggle("mostrar");
-  }
+  };
