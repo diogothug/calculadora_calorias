@@ -91,14 +91,14 @@ function calcularRacoes(animal) {
     var g_recovrey_neb = (latas_recovery_neb * G_recovery_Lata).toFixed(1);
 
     var ml_salute_nem = animal.NEM;
-    var ml_salute_neb = animal.NEB;
+    var ml_salute_neb = (animal.NEB).toFixed(2);
 
     var latas_GI_nem = (animal.NEM / GI_Lata).toFixed(2);
     var latas_GI_neb = (animal.NEB / GI_Lata).toFixed(2);
     var g_GI_neb = (latas_GI_neb * G_GI_Lata).toFixed(1);
 
-    var tag_racoes = '<p id="ml_salute_neb">' + ml_salute_nem + 'mL de salute </p><p>'
-    + latas_GI_neb + ' latas de GI</p><p>' + g_GI_neb + 'g de GI<p></p>' + latas_recovery_nem +
+    var tag_racoes = '<p id="ml_salute_neb">' + ml_salute_neb + 'mL de salute </p><p>'
+    + latas_GI_neb + ' latas de GI</p><p>' + g_GI_neb + 'g de GI<p></p>' + latas_recovery_neb +
     ' latas de recovery</p><p>' + g_recovrey_neb + 'g de recovery</p>';
 
     return tag_racoes;
