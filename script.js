@@ -146,9 +146,10 @@ function calcular(animal) {
     var resultado_kcal_nem = parseFloat(animal.NEM);
     resultado_kcal_nem = resultado_kcal_nem.toFixed(1);
 
-    div_resultado_neb.innerHTML = resultado_kcal_neb + ' kCal (NEB) <br>' + racoes_calculadas.neb;
+    div_resultado_neb.innerHTML = '<h1>NEB</h1>' + resultado_kcal_neb +
+    ' kCal (NEB) <br>' + racoes_calculadas.neb;
 
-    div_resultado_nem.innerHTML = resultado_kcal_nem +
+    div_resultado_nem.innerHTML = '<h1>NEM</h1>' + resultado_kcal_nem +
     ' kCal (NEM)' + racoes_calculadas.nem;
 
 
