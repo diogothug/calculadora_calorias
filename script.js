@@ -32,7 +32,7 @@ function alternarFormularioHospitlaizado() {
 };
 
 function pegar_input() {
-    animal['peso'] = parseInt(input_peso.value);
+    animal['peso'] = parseFloat(input_peso.value);
 
     if (input_cao.checked) {
         animal['especie'] = 'cao';
