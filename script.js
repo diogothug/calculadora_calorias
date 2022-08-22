@@ -4,6 +4,13 @@ const Salute_Ml = 1;
 const GI_Lata = 415;
 const G_GI_Lata = 400;
 
+var an_1000kcal_g = {
+    porco: 181,
+    batatadoce: 325,
+    oleodecoco: 13,
+    fooddog: 5,
+};
+
 var animal = {
     nome: 'Rex',
     especie: '',
@@ -18,6 +25,7 @@ var div_resultado_neb = document.getElementById('resultado_neb');
 var article_resultado_neb = document.getElementById('article_neb');
 var div_resultado_nem = document.getElementById('resultado_nem');
 var article_resultado_nem = document.getElementById('article_nem');
+var div_resultado_an = document.getElementById('resultado_an');
 var input_cao = document.getElementById('input_cao');
 var input_gato = document.getElementById('input_gato');
 var input_score = document.getElementById('input_score');
@@ -117,6 +125,20 @@ function calcularRacoes(animal) {
     return tag_racoes;
 };
 
+function calcularAN(animal) {
+    var porco_em_g = ((animal.NEM / 1000) * an_1000kcal_g.porco).toFixed(1);
+    var batatadoce_em_g = ((animal.NEM / 1000) * an_1000kcal_g.batatadoce).toFixed(1);
+    var oleo_de_coco_em_g = ((animal.NEM / 1000) * an_1000kcal_g.oleodecoco).toFixed(1);
+    var fooddog_em_g = ((animal.NEM / 1000) * an_1000kcal_g.fooddog).toFixed(1);
+
+    var tag_an = '<p id="porco_em_g">' + porco_em_g +
+    ' g de carne de porco.</p><p id="batatadoce_em_g">' + batatadoce_em_g +
+    'g de batata doce.</p><p id="oleodecoco_em_g">' + oleo_de_coco_em_g +
+    'g de óleo de coco.</p><p id="fooddog_em_g">' + fooddog_em_g + 'g de Food Dog Manutenção.</p>';
+
+    return tag_an;
+};
+
 function calcularNEM(animal) {
     if (animal['especie'] == 'cao') {
         animal.NEM = calcularNEMCao(animal);
@@ -155,13 +177,16 @@ function calcular(animal) {
     div_resultado_nem.innerHTML = '<h1>NEM</h1>' + resultado_kcal_nem +
     ' kCal (NEM)' + racoes_calculadas.nem;
 
+    div_resultado_an.innerHTML = calcularAN(animal);
+
 
     mostrarResultadoNEM();
     return null;
 };
 
 function mostrarResultadoNEM() {
-    article_resultado_nem.className = 'div_resultados';
+    article_resultado_nem.className = 'resultado';
+    div_resultado_an.className = 'resultado';
 };
 
 //mudar titulo de pets para cao ou gato

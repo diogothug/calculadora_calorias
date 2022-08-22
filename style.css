@@ -47,7 +47,7 @@ main {
     text-align: center;
 }
 
-article {
+.resultado {
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -58,6 +58,19 @@ article {
     margin: 10px 10px;
     padding-top: 15px;
     padding-bottom: 15px;
+    border-radius: 20px;
+    color: whitesmoke;
+    text-align: center;
+    background-color: #252525;
+}
+
+#resultado_an {
+    display: flow-root;
+    width:fit-content;
+    min-width: 200px;
+    max-width: 400px;
+    margin: 10px 10px;
+    padding: 10px 10px;
     border-radius: 20px;
     color: whitesmoke;
     text-align: center;
@@ -225,22 +238,22 @@ input[type="range"] {
 
 .waviy {
     background-color: #000000;
-  position: relative;
+    position: relative;
 }
 
 .waviy span {
-  position: relative;
-  display: inline-block;
-  color: #fff;
-  animation: waviy 3s 1;
-  animation-delay: calc(.4s * var(--i));
-  
+    position: relative;
+    display: inline-block;
+    color: #fff;
+    animation: waviy 3s 1;
+    animation-delay: calc(.4s * var(--i));
 }
+
 @keyframes waviy {
-  0%,40%,100% {
-    transform: translateY(0)
-  }
-  20% {
+    0%,40%,100% {
+        transform: translateY(0)
+    }
+    20% {
     transform: translateY(-20px)
-  }
+    }
 }
