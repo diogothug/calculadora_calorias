@@ -130,6 +130,22 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
+input[type="radio"] {
+    box-sizing: border-box;
+    appearance: none;
+    width: 1em;
+	height: 1em;
+	border: 1px solid black;
+	border-radius: 50%;
+	background-clip: content-box;
+	padding: 3px;
+}
+
+input[type="radio"]:checked {
+	background-color: gray;
+    border: 1px solid white;
+}
+
 .resultados {
     display: flex;
     justify-content: center;
@@ -148,9 +164,39 @@ input[type="range"] {
     min-width: 60px;
     max-width: 120px;
     margin-left: 10px;
+    border: 0;
+    height: 0.2em;
     justify-self: center;
     align-self: center;
+    appearance: none;   
 }
+/* personalizada do range*/
+
+::-webkit-slider-thumb {
+    appearance: none;
+    width: 1rem;
+    height: 1rem;
+    background-color: #252525;
+    border: .2rem solid #666565;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+::-webkit-slider-thumb:hover {
+    background-color: #252525;
+    border: .2rem solid #7c7c7c;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+::-webkit-slider-thumb:active {
+    background-color: #252525;
+    border: .2rem solid white;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+
 
 .label_radio {
     margin-left: -1px;
