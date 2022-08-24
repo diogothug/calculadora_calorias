@@ -130,6 +130,7 @@ input[type="number"] {
     -moz-appearance: textfield;
 }
 
+/* Estilizada radio */
 input[type="radio"] {
     box-sizing: border-box;
     appearance: none;
@@ -141,9 +142,22 @@ input[type="radio"] {
 	padding: 3px;
 }
 
+input[type="radio"]:hover {
+	background-color: black;
+    border: 1px solid #555;
+}
+
 input[type="radio"]:checked {
 	background-color: gray;
-    border: 1px solid white;
+    border: 1px solid #7c7c7c;
+    animation: animacao_radio 1s;
+}
+
+@keyframes animacao_radio {
+    from {border: 1px solid #555;}
+    to {border: 1px solid #7c7c7c;}
+    from {background-color: black;}
+    to {background-color: gray;}
 }
 
 .resultados {
@@ -160,6 +174,7 @@ input::-webkit-inner-spin-button {
   margin: 0;
 }
 
+/* personalizada do range*/
 input[type="range"] {
     min-width: 60px;
     max-width: 120px;
@@ -168,9 +183,8 @@ input[type="range"] {
     height: 0.2em;
     justify-self: center;
     align-self: center;
-    appearance: none;   
+    appearance: none;
 }
-/* personalizada do range*/
 
 ::-webkit-slider-thumb {
     appearance: none;
@@ -190,13 +204,11 @@ input[type="range"] {
 }
 
 ::-webkit-slider-thumb:active {
-    background-color: #252525;
+    background-color: #7c7c7c;
     border: .2rem solid white;
     border-radius: 1rem;
     cursor: pointer;
 }
-
-
 
 .label_radio {
     margin-left: -1px;
@@ -231,10 +243,10 @@ input[type="range"] {
     position: relative;
     display: inline-block;
     cursor: pointer;
-  }
+}
   
   /* The actual popup (appears on top) */
-  .popup .popuptext {
+.popup .popuptext {
     visibility: hidden;
     width: 160px;
     background-color: #555;
@@ -247,10 +259,10 @@ input[type="range"] {
     bottom: 125%;
     left: 50%;
     margin-left: -80px;
-  }
+}
   
   /* Popup arrow */
-  .popup .popuptext::after {
+.popup .popuptext::after {
     content: "";
     position: absolute;
     top: 100%;
@@ -259,20 +271,20 @@ input[type="range"] {
     border-width: 5px;
     border-style: solid;
     border-color: #555 transparent transparent transparent;
-  }
+}
   
-  /* Toggle this class when clicking on the popup container (hide and show the popup) */
-  .popup .mostrar {
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.popup .mostrar {
     visibility: visible;
     -webkit-animation: fadeIn 1s;
     animation: fadeIn 1s
-  }
+}
   
-  /* Add animation (fade in the popup) */
-  @-webkit-keyframes fadeIn {
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
     from {opacity: 0;}
     to {opacity: 1;}
-  }
+        }
   
   @keyframes fadeIn {
     from {opacity: 0;}
