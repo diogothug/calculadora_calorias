@@ -25,6 +25,8 @@ var span_pets = document.getElementById('span_pets');
 var input_peso = document.getElementById('input_peso');
 var div_resultado_neb = document.getElementById('resultado_neb');
 var article_resultado_neb = document.getElementById('article_neb');
+var resultado_instrucoes = document.getElementById('resultado_instrucoes');
+
 var div_resultado_nem = document.getElementById('resultado_nem');
 var article_resultado_nem = document.getElementById('article_nem');
 var div_resultado_an = document.getElementById('resultado_an');
@@ -157,12 +159,12 @@ function calcular(animal) {
     calcularNEB(animal);
 
     if (animal['peso'] == 0) {
-        div_resultado_neb.innerHTML = 'Digite o peso';
+        resultado_instrucoes.innerHTML = 'Digite o peso';
         return null;
     };
 
     if (animal['especie'] == '') {
-        div_resultado_neb.innerHTML = 'Escolha uma espécie';
+        resultado_instrucoes.innerHTML = 'Escolha uma espécie';
         return null;
     };
 
@@ -188,7 +190,10 @@ function calcular(animal) {
 
 function mostrarResultadoNEM() {
     article_resultado_nem.className = 'resultado';
+    article_resultado_neb.className = 'resultado';
     div_resultado_an.className = 'resultado';
+    resultado_instrucoes.remove();
+
 };
 
 //mudar titulo de pets para cao ou gato

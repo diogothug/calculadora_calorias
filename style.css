@@ -10,8 +10,10 @@ body{
 }
 
 .superOff {
+    width: 0px;
+    height: 0px;
     visibility: hidden !important;
-    transition: visibility 0s, opacity 0.5s linear;
+    transition: visibility 1s, opacity 0.5s linear;
     opacity: 0;
 }
 
@@ -156,7 +158,7 @@ input[type="radio"]:hover {
 input[type="radio"]:checked {
 	background-color: gray;
     border: 1px solid #7c7c7c;
-    animation: animacao_radio 1s;
+    animation: animacao_radio 2s;
 }
 
 @keyframes animacao_radio {
@@ -200,6 +202,7 @@ input[type="range"] {
     border: .2rem solid #666565;
     border-radius: 1rem;
     cursor: pointer;
+    transition: all 1s;
 }
 
 ::-webkit-slider-thumb:hover {
@@ -207,6 +210,7 @@ input[type="range"] {
     border: .2rem solid #7c7c7c;
     border-radius: 1rem;
     cursor: pointer;
+    transition: all 1s;
 }
 
 ::-webkit-slider-thumb:active {
@@ -214,6 +218,7 @@ input[type="range"] {
     border: .2rem solid white;
     border-radius: 1rem;
     cursor: pointer;
+    transition: all 1s;
 }
 
 .label_radio {
