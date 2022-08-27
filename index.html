@@ -20,22 +20,23 @@
         <form action="post" id="formulario_principal">
             <div class="div_formulario" onclick="mudarTituloPets(animal)"
             onchange="mudarTituloPets(animal)">
-                <input type="radio" name="especie" id="input_cao" value="cao">
+             
                 <label for="input_cao" class="label_radio">
+                    <input type="radio" name="especie" id="input_cao" value="cao">
                     Cachorro
                 </label>
-                <input type="radio" name="especie" id="input_gato" value="gato">
                 <label for="input_gato" class="label_radio">
+                    <input type="radio" name="especie" id="input_gato" value="gato">
                     Gato
                 </label>
             </div>
             <div class="div_formulario">
                 <label for="input_peso">
                     Peso: 
-                </label>
-                <input type="number" id="input_peso" min="0" step="0.1" onchange="calcular(animal)" 
+                    <input type="number" id="input_peso" min="0" step="0.1" onchange="calcular(animal)" 
                     onkeypress="calcular(animal)" onfocus="calcular(animal)" 
                     onkeydown="return event.key != 'Enter';">
+                </label>
             </div>
             <div class="div_formulario">
                 <label for="input_atividade">
@@ -66,9 +67,15 @@
                 <div id="resultado_nem">
                 </div>
             </article>
-        </div>
-        <div class="superOff" id="resultado_an">
-            Diogo
+            <article class="superOff" id="article_an">
+                <div id="resultado_an" class="div_resultados">
+                </div>
+            </article>
+            <article class="superOff" id="article_macros">
+                <div id="resultado_macros" class="div_resultados">
+                    Diogo
+                </div>
+            </article>
         </div>
         <div class="popup" onclick="mostrarPopUp()" style="display:none;">Teste de Pop-up
             <span class="popuptext" id="popup_id">Texto qualquer...</span>
