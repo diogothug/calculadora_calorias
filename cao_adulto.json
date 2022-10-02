@@ -1,0 +1,65 @@
+{
+    "proteinas":{
+        "total": 52,
+        "arginina": 1.51,
+        "histidina": 0.67,
+        "Isoleucina": 1.33,
+        "leucina": 2.37,
+        "lisina": 1.22,
+        "metionina": 1.16,
+        "metionina+cistina": 2.21,
+        "fenilalanina": 1.56,
+        "fenilalanina+tirosina": 2.58,
+        "treonina": 1.51,
+        "triptofano": 0.49,
+        "valina": 1.71
+    },
+
+    "gorduras":{
+        "total": 13.75,
+        "ácido linoleico": 3.82,
+        "ácido aracdônico": 0,
+        "ácido alfalinoleico": 0,
+        "EPA+DHA": 0,
+    },
+
+    "carboidratos":{
+        "total": 0
+    },
+
+    "minerais": {
+        "total": null,
+        "cálcio": 1.45,
+        "fósforo": 1.16,
+        "cálcio/fósforo": 1,
+        "potássio": 1.45,
+        "sódio": 0.29,
+        "cloro": 0.43,
+        "magnésio": 0.2,
+        "microminerais": {
+            "cobre": 2.08,
+            "iodo": 0.3,
+            "fero": 10.4,
+            "manganês": 1.67,
+            "selênio": 87,
+            "zinco": 20.8
+        }
+    },
+
+    "vitaminas": {
+        "a_ui": 1.754,
+        "d_ui": 159,
+        "e_ui": 10.4,
+        "tiamina_mg": 0.63,
+        "riboflavina_mg": 1.74,
+        "ácido pantonêico_mg": 4.11,
+        "b6_mg": 0.42,
+        "b12_mcg": 9.68,
+        "niacina": 4.74,
+        "ácido fólico_mcg": 74.7,
+        "biotina_mcg": 0,
+        "colina_mg": 474,
+        "k_mcg": 0 
+    }
+
+}
