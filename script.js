@@ -37,6 +37,8 @@ var animal = {
     peso: 0,
 };
 
+//pegando html em variaveis
+
 var span_pets = document.getElementById('span_pets');
 
 var div_resultado_neb = document.getElementById('resultado_neb');
@@ -64,6 +66,7 @@ var formulario_hospitalizado = document.getElementById('formulario_hospitalizado
 var input_emese = document.getElementById('input_emese');
 
 
+//adicionar div de animal hospitalizado
 
 function alternarFormularioHospitlaizado() {
     if (input_hospitalizado.checked) {
@@ -73,6 +76,8 @@ function alternarFormularioHospitlaizado() {
         formulario_hospitalizado.className = 'input_hospitalizado_off';
 }
 };
+
+//adicionar os inputs ao objeto animal
 
 function pegar_input() {
     animal.peso = parseFloat(input_peso.value);
@@ -92,12 +97,14 @@ function pegar_input() {
     return animal
 };
 
-function calcularNEB(animal) {              //calcula NEB usando objeto 'animal'
-    animal.NEB =  70 * (animal['peso'] ** 0.75);
+//calculos de calorias
+
+function calcularNEB(animal) {              //calcula NEB usando objeto 'animal' 
+    animal.NEB =  70 * (animal['peso'] ** 0.75);    //não importa a espécie
     return animal.NEB;
 };
 
-function calcularNEMCao(animal) {           //calcula NEM usando objeto 'animal'
+function calcularNEMCao(animal) {           //calcula NEM para caes usando objeto 'animal'
     var constante = 110;
 
     if (parseInt(input_score.value) > 3) {                          //calculo por score corporal 
@@ -120,10 +127,29 @@ function calcularNEMCao(animal) {           //calcula NEM usando objeto 'animal'
     return animal.NEM;
 };
 
+
+//calcular NEM de gato
+
 function calcularNEMGato(animal) {  //incompleta
     animal.NEM =  100 * (animal['peso'] ** 0.67);
     return animal.NEM;
 };
+
+
+//calcula NEM de acordo com a espécie
+
+function calcularNEM(animal) {
+    if (animal['especie'] == 'cao') {
+        animal.NEM = calcularNEMCao(animal);
+    } 
+    else {
+        animal['NEM'] = calcularNEMGato(animal);
+    };
+
+    return animal.NEM;
+};
+
+//calcular rações
 
 function calcularRacoes(animal) {
 
@@ -146,7 +172,7 @@ function calcularRacoes(animal) {
     var total_g_GI_neb = (total_latas_GI_neb * GI_Lata_g).toFixed(1);
     var total_g_GI_nem = (total_latas_GI_nem * GI_Lata_g).toFixed(1);
 
-//criação da tag HTML
+//criação da tag HTML para as rações
 
     var tag_racoes = {
         neb: '<p id="ml_salute_neb">' + ml_salute_neb + 'mL de salute </p><p>'
@@ -169,7 +195,7 @@ function calcularAN(animal) {
     var oleo_de_coco_em_g = ((animal.NEM / 1000) * an_1000kcal_g.oleodecoco).toFixed(1);
     var fooddog_em_g = ((animal.NEM / 1000) * an_1000kcal_g.fooddog).toFixed(1);
 
-//criação da tag HTML
+//criação da tag HTML para alimentação natural
 
     var tag_an = '<h1>Dieta Natural</h1><p id="porco_em_g">' + porco_em_g +
     ' g de carne de porco.</p><p id="batatadoce_em_g">' + batatadoce_em_g +
@@ -179,15 +205,8 @@ function calcularAN(animal) {
     return tag_an;
 };
 
-function calcularNEM(animal) {
-    if (animal['especie'] == 'cao') {
-        animal.NEM = calcularNEMCao(animal);
-    } else {
-        animal['NEM'] = calcularNEMGato(animal);
-    };
 
-    return animal.NEM;
-};
+
 
 function calcularMacros(animal) {
     if (animal.especie == 'cao') {
