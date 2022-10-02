@@ -16,11 +16,11 @@ const Ca_1000_gato_a_min_g = 1.5;
 const Ca_1000_gato_c_min_g = 2.5;
 
 
-const Recovery_Lata = 255.84;
-const G_recovery_Lata = 195;
+const Recovery_Lata_kcal = 255.84;
+const Recovery_Lata_g = 195;
 const Salute_Ml = 1;
-const GI_Lata = 415;
-const G_GI_Lata = 400;
+const GI_Lata_kcal = 415;
+const GI_Lata_g = 400;
 
 
 var an_1000kcal_g = {
@@ -92,23 +92,23 @@ function pegar_input() {
     return animal
 };
 
-function calcularNEB(animal) {
-    animal.NEB =  100 * (animal['peso'] ** 0.75);
+function calcularNEB(animal) {              //calcula NEB usando objeto 'animal'
+    animal.NEB =  70 * (animal['peso'] ** 0.75);
     return animal.NEB;
 };
 
-function calcularNEMCao(animal) {
-    var constante = 130;
+function calcularNEMCao(animal) {           //calcula NEM usando objeto 'animal'
+    var constante = 110;
 
-    if (parseInt(input_score.value) > 3) {                          //calculo por score corporal
-        constante = constante - (10 * parseInt(input_score.value));
+    if (parseInt(input_score.value) > 3) {                          //calculo por score corporal 
+        constante = constante - (10 * parseInt(input_score.value)); // está incompleto
     }
     else {
         constante = constante + (30 - (10 * parseInt(input_score.value)));
     };
 
     if (parseInt(input_atividade.value) > 3) {                          //calculo por atividade
-        constante = constante + (10 * parseInt(input_atividade.value));
+        constante = constante + (10 * parseInt(input_atividade.value)); // está incompleto
     }
 
     else if (parseInt(input_atividade.value) < 3) {
@@ -116,47 +116,60 @@ function calcularNEMCao(animal) {
     };
 
 
-    animal['NEM'] =  constante * (animal['peso'] ** 0.75);
+    animal['NEM'] =  constante * (animal['peso'] ** 0.75); //calculo final usando const atualizada
     return animal.NEM;
 };
 
-function calcularNEMGato(animal) {
+function calcularNEMGato(animal) {  //incompleta
     animal.NEM =  100 * (animal['peso'] ** 0.67);
     return animal.NEM;
 };
 
 function calcularRacoes(animal) {
-    var latas_recovery_neb = (animal.NEB / Recovery_Lata).toFixed(2);
-    var latas_recovery_nem = (animal.NEM / Recovery_Lata).toFixed(2);
-    var g_recovrey_neb = (latas_recovery_neb * G_recovery_Lata).toFixed(1);
-    var g_recovrey_nem = (latas_recovery_nem * G_recovery_Lata).toFixed(1);
+
+//recovery
+
+    var latas_recovery_neb = (animal.NEB / Recovery_Lata_kcal).toFixed(2);
+    var latas_recovery_nem = (animal.NEM / Recovery_Lata_kcal).toFixed(2);
+    var g_recovrey_neb = (latas_recovery_neb * Recovery_Lata_g).toFixed(1);
+    var g_recovrey_nem = (latas_recovery_nem * Recovery_Lata_g).toFixed(1);
+
+//salute
 
     var ml_salute_nem = (animal.NEM).toFixed(1);
     var ml_salute_neb = (animal.NEB).toFixed(1);
 
-    var latas_GI_nem = (animal.NEM / GI_Lata).toFixed(2);
-    var latas_GI_neb = (animal.NEB / GI_Lata).toFixed(2);
-    var g_GI_neb = (latas_GI_neb * G_GI_Lata).toFixed(1);
-    var g_GI_nem = (latas_GI_nem * G_GI_Lata).toFixed(1);
+//GI
+
+    var total_latas_GI_nem = (animal.NEM / GI_Lata_kcal).toFixed(2);
+    var total_latas_GI_neb = (animal.NEB / GI_Lata_kcal).toFixed(2);
+    var total_g_GI_neb = (total_latas_GI_neb * GI_Lata_g).toFixed(1);
+    var total_g_GI_nem = (total_latas_GI_nem * GI_Lata_g).toFixed(1);
+
+//criação da tag HTML
 
     var tag_racoes = {
         neb: '<p id="ml_salute_neb">' + ml_salute_neb + 'mL de salute </p><p>'
-    + latas_GI_neb + ' latas de GI</p><p>' + g_GI_neb + 'g de GI</p><p>' + latas_recovery_neb +
+    + total_latas_GI_neb + ' latas de GI</p><p>' + total_g_GI_neb + 'g de GI</p><p>' + latas_recovery_neb +
     ' latas de recovery</p><p>' + g_recovrey_neb + 'g de recovery</p>',
 
         nem: '<p id="ml_salute_nem">' + ml_salute_nem + 'mL de salute </p><p>'
-    + latas_GI_nem + ' latas de GI</p><p>' + g_GI_nem + 'g de GI</p><p>' + latas_recovery_nem +
+    + total_latas_GI_nem + ' latas de GI</p><p>' + total_g_GI_nem + 'g de GI</p><p>' + latas_recovery_nem +
     ' latas de recovery</p><p>' + g_recovrey_nem + 'g de recovery</p>',
-}
+    };
 
     return tag_racoes;
 };
+
+//calcula Alimentação natural
 
 function calcularAN(animal) {
     var porco_em_g = ((animal.NEM / 1000) * an_1000kcal_g.porco).toFixed(1);
     var batatadoce_em_g = ((animal.NEM / 1000) * an_1000kcal_g.batatadoce).toFixed(1);
     var oleo_de_coco_em_g = ((animal.NEM / 1000) * an_1000kcal_g.oleodecoco).toFixed(1);
     var fooddog_em_g = ((animal.NEM / 1000) * an_1000kcal_g.fooddog).toFixed(1);
+
+//criação da tag HTML
 
     var tag_an = '<h1>Dieta Natural</h1><p id="porco_em_g">' + porco_em_g +
     ' g de carne de porco.</p><p id="batatadoce_em_g">' + batatadoce_em_g +
@@ -196,7 +209,7 @@ function calcularMacros(animal) {
     return tag_macros;
 };
 
-function calcular(animal) {
+function pegar_dados(animal) {
     pegar_input();
     calcularNEM(animal);
     calcularNEB(animal);
@@ -243,13 +256,14 @@ function calcular(animal) {
     return null;
 };
 
+//adiciona o resultado no DOM
+
 function mostrarResultadoNEM() {
     article_resultado_nem.className = 'resultado';
     article_resultado_neb.className = 'resultado';
     article_resultado_an.className = 'resultado';
     article_resultado_macros.className = 'resultado';
     resultado_instrucoes.remove();
-
 };
 
 //mudar titulo de pets para cao ou gato
