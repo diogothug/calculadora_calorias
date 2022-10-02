@@ -1,0 +1,77 @@
+{
+    "kcal": 112,
+
+    "proteinas":{
+        "total": null,
+        "arginina": null,
+        "histidina": null,
+        "Isoleucina": null,
+        "leucina": null,
+        "lisina": null,
+        "metionina": null,
+        "metionina+cistina": null,
+        "fenilalanina": null,
+        "fenilalanina+tirosina": null,
+        "treonina": null,
+        "triptofano": null,
+        "valina": null
+    },
+
+    "gorduras":{
+        "total": null,
+        "saturadas": null,
+        "insaturadas":{
+            "total": null,
+            "ácido linoleico": null,
+            "ácido aracdônico": null,
+            "ácido alfalinoleico": null,
+            "EPA+DHA": null
+        },
+        "colesterol": null
+    },
+
+    "carboidratos":{
+        "total": null
+    },
+
+    "fibras":{
+        "total": null,
+    }
+
+    "minerais_mg": {
+        "total": null,
+        "cálcio": null,
+        "fósforo": null,
+        "potássio": null,
+        "sódio": null,
+        "cloro": null,
+        "magnésio": null,
+        "microminerais_mcg": {
+            "cobre": null,
+            "iodo": null,
+            "ferro": null,
+            "manganês": null,
+            "selênio": null,
+            "zinco": null
+        }
+    },
+
+    "vitaminas": {
+        "a_ui": null,
+        "d_ui": null,
+        "e_ui": null,
+        "e_mg": null,
+        "c": null,
+        "tiamina_mg": null,
+        "riboflavina_mg": null,
+        "ácido pantonêico_mg": null,
+        "b6_mg": null,
+        "b12_mcg": null,
+        "niacina": null,
+        "ácido fólico_mcg": null,
+        "biotina_mcg": null,
+        "colina_mg": null,
+        "k_mcg": null 
+    }
+
+}
