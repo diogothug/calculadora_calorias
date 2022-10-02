@@ -47,19 +47,21 @@
     },
 
     "vitaminas": {
-        "a_ui": 1.754,
-        "d_ui": 159,
-        "e_ui": 10.4,
-        "tiamina_mg": 0.63,
-        "riboflavina_mg": 1.74,
-        "ácido pantonêico_mg": 4.11,
-        "b6_mg": 0.42,
-        "b12_mcg": 9.68,
-        "niacina": 4.74,
-        "ácido fólico_mcg": 74.7,
-        "biotina_mcg": 0,
-        "colina_mg": 474,
-        "k_mcg": 0 
+        "a_ui": null,
+        "d_ui": null,
+        "e_ui": null,
+        "e_mg": null,
+        "c": null,
+        "b1_mg": null,
+        "b2_mg": null,
+        "b3_mcg": null,
+        "b5_mg": null,
+        "b6_mg": null,
+        "b7_mcg": null,
+        "b8_mg": null,
+        "b9_mcg": null,
+        "b12_mcg": null,
+        "k_mcg": null 
     }
 
 }

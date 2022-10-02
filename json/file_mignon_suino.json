@@ -53,21 +53,21 @@
     },
 
     "vitaminas": {
-        "a_ui": 0,
+        "a_ui": null,
         "d_ui": null,
         "e_ui": null,
-        "e_mg": 0.2,
-        "c": 0,
-        "tiamina_mg": null,
-        "riboflavina_mg": null,
-        "ácido pantonêico_mg": null,
-        "b6_mg": 0.8,
-        "b12_mcg": 0,
-        "niacina": null,
-        "ácido fólico_mcg": null,
-        "biotina_mcg": null,
-        "colina_mg": null,
-        "k_mcg": 0 
+        "e_mg": null,
+        "c": null,
+        "b1_mg": null,
+        "b2_mg": null,
+        "b3_mcg": null,
+        "b5_mg": null,
+        "b6_mg": null,
+        "b7_mcg": null,
+        "b8_mg": null,
+        "b9_mcg": null,
+        "b12_mcg": null,
+        "k_mcg": null 
     }
 
 }

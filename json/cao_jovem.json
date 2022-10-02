@@ -1,18 +1,18 @@
 {
     "proteinas":{
-        "total": 62.5,
-        "arginina": 2.04,
-        "histidina": 0.98,
-        "Isoleucina": 1.63,
-        "leucina": 3.23,
-        "lisina": 2.2,
-        "metionina": 0.88,
-        "metionina+cistina": 2.21,
-        "fenilalanina": 1.63,
-        "fenilalanina+tirosina": 3.25,
-        "treonina": 2.03,
-        "triptofano": 0.58,
-        "valina": 1.7
+        "total": 50,
+        "arginina": 1.84,
+        "histidina": 0.63,
+        "Isoleucina": 1.25,
+        "leucina": 2,
+        "lisina": 1.75,
+        "metionina": 0.65,
+        "metionina+cistina": 1.33,
+        "fenilalanina": 1.25,
+        "fenilalanina+tirosina": 2.5,
+        "treonina": 1.6,
+        "triptofano": 0.53,
+        "valina": 1.4
     },
 
     "gorduras":{
@@ -28,8 +28,8 @@
     },
 
     "minerais": {
-        "cálcio": 4,
-        "fósforo": 2.25,
+        "cálcio": 4.5,
+        "fósforo": 1.75,
         "cálcio/fósforo": 1.6,
         "potássio": 1.1,
         "sódio": 0.55,

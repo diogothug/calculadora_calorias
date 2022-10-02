@@ -1,8 +1,8 @@
 {
-    "kcal": 112,
+    "kcal": 902,
 
     "proteinas":{
-        "total": null,
+        "total": 0,
         "arginina": null,
         "histidina": null,
         "Isoleucina": null,
@@ -18,18 +18,18 @@
     },
 
     "gorduras":{
-        "total": null,
-        "saturadas": null,
+        "total": 100,
+        "saturadas": 20,
         "insaturadas":{
             "total": null,
-            "mono": null,
-            "poli": null,
+            "mono": 29,
+            "poli": 40.324,
             "ácido linoleico": null,
             "ácido aracdônico": null,
             "ácido alfalinoleico": null,
             "EPA+DHA": null
         },
-        "colesterol": null
+        "colesterol": 485
     },
 
     "carboidratos":{
