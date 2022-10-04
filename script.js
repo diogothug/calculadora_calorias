@@ -31,11 +31,20 @@ var an_1000kcal_g = {
 };
 
 var animal = {
-    nome: 'Rex',
+    nome: 'Rex_zerado',
     especie: '',
-    NEB: 0,
     peso: 0,
+    score: 4,
+    atividade: 3,
+    constante: 110,
+    expoente: 0.75,
+    NEB: 0,
+    NEM: 0,
 };
+
+
+
+
 
 //pegando html em variaveis
 
@@ -80,18 +89,33 @@ function alternarFormularioHospitlaizado() {
 //adicionar os inputs ao objeto animal
 
 function pegar_input() {
+
+    animal = {
+        nome: 'Rex',
+        especie: '',
+        peso: 0,
+        score: 4,
+        atividade: 3,
+        constante: 110,
+        expoente: 0.75,
+        NEB: 0,
+        NEM: 0,
+    };
+
     animal.peso = parseFloat(input_peso.value);
+    animal.score = parseFloat(input_score.value);
+    animal.atividade = parseFloat(input_atividade.value);
 
     if (input_cao.checked) {
-        animal['especie'] = 'cao';
+        animal.especie = 'cao';
     }
 
     else if (input_gato.checked) {
-        animal['especie'] = 'gato';
+        animal.especie = 'gato';
     };    
 
     if (input_peso.value == '') {
-        animal['peso'] = 0;
+        animal.peso = 0;
     };
 
     return animal
@@ -99,51 +123,67 @@ function pegar_input() {
 
 //calculos de calorias
 
-function calcularNEB(animal) {              //calcula NEB usando objeto 'animal' 
+function calcularNEB(animal) {              //calcula NEB usando objeto 'animal'
+
     animal.NEB =  70 * (animal['peso'] ** 0.75);    //não importa a espécie
     return animal.NEB;
+
 };
 
 function calcularNEMCao(animal) {           //calcula NEM para caes usando objeto 'animal'
-    var constante = 110;
+    
 
-    if (parseInt(input_score.value) > 3) {                          //calculo por score corporal 
-        constante = constante - (10 * parseInt(input_score.value)); // está incompleto
+    if (parseInt(input_score.value) > 3) {       
+                           //calculo por score corporal 
+        animal.constante = animal.constante - (10 * parseInt(input_score.value)); // está incompleto
     }
     else {
-        constante = constante + (30 - (10 * parseInt(input_score.value)));
-    };
 
-    if (parseInt(input_atividade.value) > 3) {                          //calculo por atividade
-        constante = constante + (10 * parseInt(input_atividade.value)); // está incompleto
-    }
-
-    else if (parseInt(input_atividade.value) < 3) {
-        constante = constante - (30 - (10 * parseInt(input_atividade.value)));
+        animal.constante = animal.constante + (30 - (10 * parseInt(input_score.value)));
     };
 
 
-    animal['NEM'] =  constante * (animal['peso'] ** 0.75); //calculo final usando const atualizada
+    animal.NEM =  animal.constante * (animal['peso'] ** 0.75); //calculo final usando const atualizada
     return animal.NEM;
 };
 
 
-//calcular NEM de gato
+//calcular NEM de gato     -    incompleta
 
 function calcularNEMGato(animal) {  //incompleta
-    animal.NEM =  100 * (animal['peso'] ** 0.67);
+    
+    if (animal.score > 3) {
+        animal.expoente = 0.67;                //muda o expoetnte de gatos obesos
+    }
+
+    animal.NEM =  animal.constante * (animal.peso ** animal.expoente);
+    
     return animal.NEM;
 };
 
 
-//calcula NEM de acordo com a espécie
+//calcula NEM -- escolhe as funcoes e ordem corretas
 
 function calcularNEM(animal) {
+
+    //   1.escolhe por especie
     if (animal['especie'] == 'cao') {
+
         animal.NEM = calcularNEMCao(animal);
     } 
     else {
-        animal['NEM'] = calcularNEMGato(animal);
+
+        animal.NEM = calcularNEMGato(animal);
+    };
+
+    // 2. ajusta conforme atividade
+
+    if (parseInt(input_atividade.value) > 3) {                          //calculo por atividade
+        animal.constante = animal.constante + (10 * parseInt(input_atividade.value)); // está incompleto
+    }
+
+    else if (parseInt(input_atividade.value) < 3) {
+        animal.constante = animal.constante - (30 - (10 * parseInt(input_atividade.value)));
     };
 
     return animal.NEM;
@@ -153,19 +193,19 @@ function calcularNEM(animal) {
 
 function calcularRacoes(animal) {
 
-//recovery
+//recovery lata
 
     var latas_recovery_neb = (animal.NEB / Recovery_Lata_kcal).toFixed(2);
     var latas_recovery_nem = (animal.NEM / Recovery_Lata_kcal).toFixed(2);
     var g_recovrey_neb = (latas_recovery_neb * Recovery_Lata_g).toFixed(1);
     var g_recovrey_nem = (latas_recovery_nem * Recovery_Lata_g).toFixed(1);
 
-//salute
+//salute diluido corretamente
 
     var ml_salute_nem = (animal.NEM).toFixed(1);
     var ml_salute_neb = (animal.NEB).toFixed(1);
 
-//GI
+//Gastro intestinal lata
 
     var total_latas_GI_nem = (animal.NEM / GI_Lata_kcal).toFixed(2);
     var total_latas_GI_neb = (animal.NEB / GI_Lata_kcal).toFixed(2);
@@ -206,7 +246,7 @@ function calcularAN(animal) {
 };
 
 
-
+// pequena funcao de calculo de macros baseados nas calorias para teste
 
 function calcularMacros(animal) {
     if (animal.especie == 'cao') {
@@ -228,13 +268,17 @@ function calcularMacros(animal) {
     return tag_macros;
 };
 
+//funcao chamada pelo HTML
+
 function pegar_dados(animal) {
-    pegar_input();
-    calcularNEM(animal);
-    calcularNEB(animal);
+    pegar_input();                          //pega os inputs
+    calcularNEM(animal);                    //calcula o NEM
+    calcularNEB(animal);                    //calcula o NEB
     calcularAN(animal);
 
-    if (animal['peso'] == 0) {
+    //escreve ajudas no dom para completar os inputs
+
+    if (animal.peso == 0) {
         resultado_instrucoes.innerHTML = 'Digite o peso';
         return null;
     };

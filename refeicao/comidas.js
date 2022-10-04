@@ -4,7 +4,7 @@ var cao_filhote = {
         "total_ptn": 62.5,
         "arginina": 2.04,
         "histidina": 0.98,
-        "Isoleucina": 1.63,
+        "isoleucina": 1.63,
         "leucina": 3.23,
         "lisina": 2.2,
         "metionina": 0.88,
@@ -17,7 +17,7 @@ var cao_filhote = {
     },
 
     "gorduras":{
-        "total": 21.25,
+        "total_gord": 21.25,
         "ácido linoleico": 3.25,
         "ácido aracdônico": 0.075,
         "ácido alfalinoleico": 0.2,
@@ -25,7 +25,7 @@ var cao_filhote = {
     },
 
     "carboidratos":{
-        "total": 0
+        "total_carb": 0
     },
 
     "minerais": {
@@ -71,7 +71,7 @@ var cao_adulto = {
         "total_ptn": 52,
         "arginina": 1.51,
         "histidina": 0.67,
-        "Isoleucina": 1.33,
+        "isoleucina": 1.33,
         "leucina": 2.37,
         "lisina": 1.22,
         "metionina": 1.16,
@@ -88,7 +88,7 @@ var cao_adulto = {
         "ácido linoleico": 3.82,
         "ácido aracdônico": 0,
         "ácido alfalinoleico": 0,
-        "EPA+DHA": 0
+        "epa+dha": 0
     },
 
     "carboidratos":{
@@ -106,7 +106,7 @@ var cao_adulto = {
         "microminerais": {
             "cobre": 2.08,
             "iodo": 0.3,
-            "fero": 10.4,
+            "ferro": 10.4,
             "manganês": 1.67,
             "selênio": 87,
             "zinco": 20.8
@@ -146,21 +146,50 @@ const eh_obejto = (val) => {
 //pega todas as keys de um objeto e transforma numa lista html
 
 const keys_para_lista_html = (objeto) => {
-    var tag;
-    var temp_tag;
+    
     for (const key in objeto) {
 
         if (eh_obejto(objeto[key])) {
             keys_para_lista_html(objeto[key]);
         }
-        else {
-            document.write(' <li>' + key + '</li>');
-            console.log(key);
+        else {    //formatações
+
+            if (key.includes('total')) {
+
+                continue;
+            }
+
+            else if (key.includes('_')) {
+
+                key_nova = key.split('_');
+                key_nova = key_nova[0];
+            }
+
+            else if (key.includes('+')) {
+
+                key_nova = key.replace('+', ' + ');
+
+            }
+
+            else {
+
+                key_nova = key;
+            };
+
+// deica o primeira letra maiuscula
+        key_nova = key_nova.charAt(0).toUpperCase() + key_nova.slice(1); 
+
+        if (key_nova.length < 4) {     //deixa as vitaminas maiusculas
+
+            key_nova = key_nova.toUpperCase();
         }
-    }
+
+            document.write(' <li>' + key_nova + '</li>');  //escre a tag com o titulo 'key'
+        };
+    };
 };
 
-//pega objetos e separa as keys nao aninhadas
+//pega objetos e separa as keys nao aninhadas - serve para pegar os macros
 
 const escreve_os_grupos_nutrientes = (objeto) =>{
 
@@ -178,8 +207,11 @@ const escreve_os_grupos_nutrientes = (objeto) =>{
 //cria um objeto com as nescessidades de macros
 //calculadas conforme as calorias
 
+//incompleta
+
 const calcula_macros = (animal) => {
-    //escolhe o perfil baseado na idade e estagio de reproducao
+
+//escolhe o perfil baseado na idade e estagio de reproducao
     if (animal.idade > 3) {
         animal.dic_nutrientes = cao_adulto;
     }
@@ -189,4 +221,4 @@ const calcula_macros = (animal) => {
     else {
         animal.dic_nutrientes = cao_filhote;
     };
-};
+}

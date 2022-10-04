@@ -66,7 +66,7 @@ var input_atividade = document.getElementById('input_atividade') as HTMLInputEle
 
 var input_politraumatismo = document.getElementById('input_politraumatismo') as HTMLInputElement;
 var input_hipofagia = document.getElementById('input_hipofagia') as HTMLInputElement;
-var formulario_hospitalizado = document.getElementById('formulario_hospitalizado');
+var formulario_hospitalizado = document.getElementById('formulario_hospitalizado') as HTMLFormElement;
 var input_emese = document.getElementById('input_emese') as HTMLInputElement;
 
 
