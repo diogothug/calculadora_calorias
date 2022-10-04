@@ -12,8 +12,8 @@ body{
 .superOff {
     width: 0px;
     height: 0px;
+    color: #000000;
     visibility: hidden !important;
-    transition: visibility 1s, opacity 0.5s linear;
     opacity: 0;
 }
 

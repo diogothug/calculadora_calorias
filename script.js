@@ -327,6 +327,11 @@ function mostrarResultadoNEM() {
     article_resultado_an.className = 'resultado';
     article_resultado_macros.className = 'resultado';
     resultado_instrucoes.remove();
+    if (animal.especie == 'gato') {
+
+        article_resultado_an.className = "superOff";
+
+    }
 };
 
 //mudar titulo de pets para cao ou gato
