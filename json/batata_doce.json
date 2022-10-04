@@ -32,15 +32,15 @@
     },
 
     "carboidratos":{
-        "total": 25.88
+        "total_carb": 25.88
     },
 
     "fibras":{
-        "total": 4.2
+        "total_fibra": 4.2
     },
 
     "minerais_mg": {
-        "total": null,
+        "total_mineral": null,
         "cálcio": null,
         "fósforo": null,
         "potássio": 491,

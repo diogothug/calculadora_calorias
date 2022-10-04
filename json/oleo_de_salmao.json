@@ -18,10 +18,10 @@
     },
 
     "gorduras":{
-        "total": 100,
+        "total_gord": 100,
         "saturadas": 20,
         "insaturadas":{
-            "total": null,
+            "total_insaturadas": null,
             "mono": 29,
             "poli": 40.324,
             "ácido linoleico": null,
@@ -33,15 +33,15 @@
     },
 
     "carboidratos":{
-        "total": null
+        "total_carb": null
     },
 
     "fibras":{
-        "total": null
+        "total_fibra": null
     },
 
     "minerais_mg": {
-        "total": null,
+        "total_mineral": null,
         "cálcio": null,
         "fósforo": null,
         "potássio": null,

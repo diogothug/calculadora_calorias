@@ -2,7 +2,7 @@
     "kcal": 112,
 
     "proteinas":{
-        "total": null,
+        "total_ptn": null,
         "arginina": null,
         "histidina": null,
         "Isoleucina": null,
@@ -18,10 +18,10 @@
     },
 
     "gorduras":{
-        "total": null,
+        "total_gord": null,
         "saturadas": null,
         "insaturadas":{
-            "total": null,
+            "total_insaturada": null,
             "mono": null,
             "poli": null,
             "ácido linoleico": null,
@@ -33,15 +33,15 @@
     },
 
     "carboidratos":{
-        "total": null
+        "total_carb": null
     },
 
     "fibras":{
-        "total": null
+        "total_fibra": null
     },
 
     "minerais_mg": {
-        "total": null,
+        "total_mineral": null,
         "cálcio": null,
         "fósforo": null,
         "potássio": null,
