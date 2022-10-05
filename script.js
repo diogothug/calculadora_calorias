@@ -132,6 +132,7 @@ function calcularNEB(animal) {              //calcula NEB usando objeto 'animal'
 
 function calcularNEMCao(animal) {           //calcula NEM para caes usando objeto 'animal'
     
+    expoente = 0.75;
 
     if (parseInt(input_score.value) > 3) {       
                            //calculo por score corporal 
@@ -303,6 +304,7 @@ function pegar_dados(animal) {
 
     div_resultado_nem.innerHTML = `
         <h1>NEM</h1>
+        fórmula usada: ${animal.constante} * peso ** ${animal.expoente}
         <p>${resultado_kcal_nem} kCal</p>
         ${racoes_calculadas.nem}`;
     
@@ -330,6 +332,7 @@ function mostrarResultadoNEM() {
     if (animal.especie == 'gato') {
 
         article_resultado_an.className = "superOff";
+        article_resultado_macros.className = "superOff";
 
     }
 };

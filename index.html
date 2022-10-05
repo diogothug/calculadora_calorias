@@ -14,14 +14,13 @@
         <h1 class="tituloPrincipal">
             Calculadora de Calorias para <span id="span_pets">Pets</span>
         </h1>
-        <p>Cálculo das rações baseado nas necessidades basais (NEB)</p>
     </header>
     <main>
         <form action="post" id="formulario_principal">
             <div class="div_formulario" onclick="mudarTituloPets(animal)"
             onchange="mudarTituloPets(animal)">
              
-                <label for="input_cao" class="label_radio">
+                <label for="input_cao" class="label_radio" onmouseover="pegar_dados(animal)">
                     <input type="radio" name="especie" id="input_cao" value="cao">
                     Cachorro
                 </label>
@@ -34,6 +33,12 @@
                 <label for="input_peso">
                     Peso: 
                     <input type="number" id="input_peso" min="0" step="0.1" onchange="pegar_dados(animal)" 
+                    onkeypress="pegar_dados(animal)" onfocus="pegar_dados(animal)" 
+                    onkeydown="return event.key != 'Enter';">
+                </label>
+                <label for="input_idade">
+                    Idade: 
+                    <input type="number" id="input_idade" min="1" step="1" onchange="pegar_dados(animal)" 
                     onkeypress="pegar_dados(animal)" onfocus="pegar_dados(animal)" 
                     onkeydown="return event.key != 'Enter';">
                 </label>
@@ -54,7 +59,7 @@
             </div>
         </form>
         <div class="resultados">
-            <article id="resultado_instrucoes" class="resultado">
+            <article id="resultado_instrucoes" class="resultado" onmouseover="pegar_dados(animal)">
                 <div id="" class="div_resultados">
                     Calcule as refeições!
                 </div>
