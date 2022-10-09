@@ -153,7 +153,11 @@ function calcularNEMCao(animal) {           //calcula NEM para caes usando objet
 
 function calcularNEMGato(animal) {  //incompleta
     
-    if (animal.score > 3) {
+    if (animal.score > 5) {
+        animal.expoente = 0.4;                //muda o expoetnte de gatos obesos
+    }
+    
+    if (animal.score <= 5) {
         animal.expoente = 0.67;                //muda o expoetnte de gatos obesos
     }
 
