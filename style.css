@@ -350,3 +350,112 @@ input[type="range"] {
         height: 80%;
     }
 }
+
+/* === NOVOS ESTILOS - Monetização & PWA === */
+
+/* Subtítulo */
+.subtitulo {
+    margin-top: -10px;
+    font-size: 0.9em;
+    color: #aaa;
+    margin-bottom: 15px;
+}
+
+/* Range labels */
+.range-labels {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    font-size: 0.7em;
+    color: #888;
+    margin-top: -5px;
+}
+
+/* Premium Teaser */
+.premium-teaser {
+    background: linear-gradient(135deg, #1a1a2e, #252525);
+    border: 1px solid #ffd700;
+    border-radius: 15px;
+    padding: 15px;
+    margin: 15px 0;
+    text-align: center;
+}
+
+.btn-premium {
+    background: linear-gradient(135deg, #ffd700, #ffaa00);
+    color: #000;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-size: 1em;
+    cursor: pointer;
+    margin: 8px 0;
+    transition: transform 0.2s;
+}
+
+.btn-premium:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.premium-teaser small {
+    display: block;
+    color: #aaa;
+    font-size: 0.75em;
+}
+
+/* YouTube CTA */
+.yt-cta {
+    text-align: center;
+    padding: 15px;
+    margin: 15px 0;
+    background: #252525;
+    border-radius: 15px;
+}
+
+.btn-yt {
+    display: inline-block;
+    background: #ff0000;
+    color: white;
+    padding: 10px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.btn-yt:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.5);
+}
+
+/* Footer */
+footer {
+    background: #121212;
+    padding: 20px;
+    margin-top: 30px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+footer a {
+    color: #ffd700;
+    text-decoration: none;
+}
+
+footer p {
+    margin: 5px 0;
+    font-size: 0.85em;
+}
+
+.footer-links a {
+    margin: 0 10px;
+    color: #888;
+}
+
+.footer-links a:hover {
+    color: #ffd700;
+}
+
+/* Waviy animation - defined above, kept here for completeness */

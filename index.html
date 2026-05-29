@@ -3,10 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <title>Calculadora de Calorias para pets</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    
+    <!-- SEO Meta Tags -->
+    <title>NutriPet - Calculadora de Calorias para Cães e Gatos</title>
+    <meta name="description" content="Calculadora profissional de nutrição para pets. Calcule NEB, NEM, monte ração natural personalizada para seu cão ou gato. Ferramenta gratuita para veterinários e tutores.">
+    <meta name="keywords" content="nutrição pet, calculadora calorias, ração natural, cão, gato, veterinária, NEB, NEM, alimentação natural">
+    <meta name="author" content="Diogo Barros - Nutrição Natural para Pets">
+    <meta name="robots" content="index, follow">
+    
+    <!-- Open Graph (compartilhamento) -->
+    <meta property="og:title" content="NutriPet - Calculadora de Calorias para Pets">
+    <meta property="og:description" content="Calcule a alimentação ideal do seu pet com nossa calculadora profissional gratuita.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://diogothug.github.io/calculadora_calorias/">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="NutriPet">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="favicon/apple-icon.png">
+    
+    <!-- Favicon -->
     <link rel="shortcut icon" type="image/png" href="favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
     
 </head>
 <body onclick="pegar_dados(animal)" onforminput="pegar_dados()">
@@ -14,6 +40,7 @@
         <h1 class="tituloPrincipal">
             Calculadora de Calorias para <span id="span_pets">Pets</span>
         </h1>
+        <p class="subtitulo">Nutrição natural e funcional para seu pet 🐾</p>
     </header>
     <main>
         <form action="post" id="formulario_principal">
@@ -22,16 +49,16 @@
              
                 <label for="input_cao" class="label_radio" onmouseover="pegar_dados(animal)">
                     <input type="radio" name="especie" id="input_cao" value="cao">
-                    Cachorro
+                    Cachorro 🐕
                 </label>
                 <label for="input_gato" class="label_radio">
                     <input type="radio" name="especie" id="input_gato" value="gato">
-                    Gato
+                    Gato 🐱
                 </label>
             </div>
             <div class="div_formulario">
                 <label for="input_peso">
-                    Peso: 
+                    Peso (kg): 
                     <input type="number" id="input_peso" min="0" step="0.1" onchange="pegar_dados(animal)" 
                     onkeypress="pegar_dados(animal)" onfocus="pegar_dados(animal)" 
                     onkeydown="return event.key != 'Enter';">
@@ -45,17 +72,34 @@
             </div>
             <div class="div_formulario">
                 <label for="input_atividade">
-                    Atividade:
+                    Nível de Atividade:
                 </label>
                 <input type="range" id="input_atividade" min="1" max="5" step="1" onchange="pegar_dados(animal)" 
                 onkeypress="pegar_dados(animal)" onkeydown="return event.key != 'Enter';">
+                <div class="range-labels">
+                    <span>Sedentário</span>
+                    <span>Ativo</span>
+                </div>
             </div>
             <div class="div_formulario">
                 <label for="input_score">
-                    Score corporal:
+                    Escore Corporal (1-5):
                 </label>
                 <input type="range" id="input_score" min="1" max="5" step="1" onchange="pegar_dados(animal)" 
                 onkeypress="pegar_dados(animal)" onkeydown="return event.key != 'Enter';">
+                <div class="range-labels">
+                    <span>Magro</span>
+                    <span>Sobrepeso</span>
+                </div>
+            </div>
+            
+            <!-- Premium teaser -->
+            <div class="premium-teaser" id="premium_teaser" style="display:none;">
+                <p>🌟 Quer um plano alimentar completo para seu pet?</p>
+                <button onclick="window.open('https://nutripetpro.vercel.app/premium','_blank')" class="btn-premium">
+                    Assinar NutriPet Premium → R$ 9,90/mês
+                </button>
+                <small>Plano personalizado + relatório PDF + sem anúncios</small>
             </div>
         </form>
         <div class="resultados">
@@ -85,9 +129,44 @@
         <div class="popup" onclick="mostrarPopUp()" style="display:none;">Teste de Pop-up
             <span class="popuptext" id="popup_id">Texto qualquer...</span>
         </div>
+        
+        <!-- CTA YouTube -->
+        <div class="yt-cta">
+            <p>🐾 Mais dicas de nutrição pet no YouTube</p>
+            <a href="https://youtube.com/@diogogenuino?sub_confirmation=1" target="_blank" class="btn-yt">
+                Inscreva-se → @diogogenuino
+            </a>
+        </div>
     </main>
     <footer>
+        <p>NutriPet by <a href="https://youtube.com/@diogogenuino" target="_blank">Diogo Barros</a> — Nutrição natural e funcional para seu pet</p>
+        <p class="footer-links">
+            <a href="https://youtube.com/@diogogenuino" target="_blank">YouTube</a> | 
+            <a href="https://instagram.com/mardemorere" target="_blank">Instagram</a>
+        </p>
     </footer>
     <script src="script.js"></script>
+    
+    <!-- Service Worker (PWA) -->
+    <script>
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('sw.js')
+                    .then(() => console.log('NutriPet PWA: Service Worker registrado'))
+                    .catch(err => console.log('NutriPet PWA: Erro no SW', err));
+            });
+        }
+    </script>
+    
+    <!-- Google Analytics (ativar quando configurar) -->
+    <!--
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-XXXXXXXXXX');
+    </script>
+    -->
 </body>
 </html>
