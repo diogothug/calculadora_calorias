@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NutriPet Premium — Plano Alimentar Personalizado para seu Pet</title>
+    <meta name="description" content="Assine o NutriPet Premium e tenha planos alimentares personalizados para seu cão ou gato, relatórios em PDF e suporte veterinário.">
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        body { background: #0a0a0a; color: #fff; font-family: system-ui; max-width: 800px; margin: 0 auto; padding: 20px; }
+        .plan-card { background: linear-gradient(135deg, #1a1a2e, #252525); border: 1px solid #ffd700; border-radius: 20px; padding: 30px; margin: 20px 0; }
+        .plan-card h2 { color: #ffd700; margin-top: 0; font-size: 1.8em; }
+        .price { font-size: 2.5em; font-weight: bold; color: #ffd700; }
+        .price small { font-size: 0.4em; color: #aaa; }
+        .features { list-style: none; padding: 0; }
+        .features li { padding: 12px 0; border-bottom: 1px solid #333; }
+        .features li:before { content: "✅ "; }
+        .btn-assinar { display: block; background: linear-gradient(135deg, #ffd700, #ffaa00); color: #000; text-align: center; padding: 15px; border-radius: 30px; font-size: 1.2em; font-weight: bold; text-decoration: none; margin: 20px 0; transition: transform 0.2s; }
+        .btn-assinar:hover { transform: scale(1.02); box-shadow: 0 0 20px rgba(255,215,0,0.4); }
+        .faq { margin: 30px 0; }
+        .faq h3 { color: #ffd700; }
+        .testimonial { font-style: italic; border-left: 3px solid #ffd700; padding-left: 15px; margin: 20px 0; color: #ccc; }
+        .comparison { display: flex; gap: 20px; flex-wrap: wrap; }
+        .comparison > div { flex: 1; min-width: 200px; background: #1a1a1a; border-radius: 15px; padding: 20px; }
+        .comparison h3 { text-align: center; }
+        .free-plan { border: 1px solid #444; }
+        .premium-plan { border: 1px solid #ffd700; }
+    </style>
+</head>
+<body>
+    <header style="text-align:center;margin-bottom:30px;">
+        <h1>NutriPet <span style="color:#ffd700;">Premium</span></h1>
+        <p>Nutrição personalizada para o seu pet, feita por quem entende de verdade 🐾</p>
+    </header>
+
+    <div class="plan-card">
+        <h2>🐶 Plano Premium</h2>
+        <div class="price">R$ 9,90 <small>/mês</small></div>
+        
+        <ul class="features">
+            <li>Plano alimentar PERSONALIZADO para seu cão ou gato</li>
+            <li>Cálculo preciso de calorias com base no peso, idade e nível de atividade</li>
+            <li>Relatório PDF completo com todas as refeições do mês</li>
+            <li>Recomendação de alimentos naturais e suplementos</li>
+            <li>Modo hospitalar para pets em tratamento</li>
+            <li>Sem anúncios</li>
+            <li>Acesso ao histórico de todos os planos gerados</li>
+            <li>Suporte via WhatsApp (Diogo responde)</li>
+        </ul>
+        
+        <a href="#" class="btn-assinar" onclick="alert('Em breve! Pagamento via Stripe sendo configurado. Volte em alguns dias ou me chame no WhatsApp.')">
+            🔒 Assinar Agora — R$ 9,90/mês
+        </a>
+        <p style="text-align:center;color:#888;font-size:0.85em;">Cancele quando quiser. Sem fidelidade.</p>
+    </div>
+
+    <h2 style="text-align:center;">Comparação dos Planos</h2>
+    <div class="comparison">
+        <div class="free-plan">
+            <h3>🎁 Grátis</h3>
+            <ul class="features">
+                <li>Cálculo básico NEB/NEM</li>
+                <li>Anúncios</li>
+                <li>Resultado na tela</li>
+            </ul>
+        </div>
+        <div class="premium-plan">
+            <h3>⭐ Premium</h3>
+            <ul class="features">
+                <li>Plano personalizado completo</li>
+                <li>Sem anúncios</li>
+                <li>Relatório PDF</li>
+                <li>Histórico de planos</li>
+                <li>Suporte WhatsApp</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="faq">
+        <h3>❓ Perguntas Frequentes</h3>
+        <p><strong>Como funciona o plano personalizado?</strong></p>
+        <p>Você informa os dados do seu pet (peso, idade, espécie, nível de atividade, condições de saúde) e o NutriPet Premium gera um plano alimentar completo com alimentos, quantidades e horários.</p>
+        
+        <p><strong>Posso cancelar quando quiser?</strong></p>
+        <p>Sim! Sem multa, sem burocracia. Seu acesso continua até o fim do período pago.</p>
+        
+        <p><strong>É seguro para meu pet?</strong></p>
+        <p>Sim. As recomendações seguem as diretrizes da FEDIAF e do NRC para nutrição de cães e gatos.</p>
+    </div>
+
+    <div class="testimonial">
+        <p>"Uso o NutriPet há 3 meses e a diferença na pelagem e energia da minha gata foi visível em 2 semanas!"</p>
+        <p>— Ana C., tutora de Luna (gata, 4 anos)</p>
+    </div>
+
+    <footer style="text-align:center;margin-top:50px;padding:20px;">
+        <p>🐾 NutriPet por <a href="https://youtube.com/@diogogenuino" style="color:#ffd700;">Diogo Barros</a></p>
+        <p style="color:#666;font-size:0.8em;">
+            <a href="https://youtube.com/@diogogenuino" style="color:#888;">YouTube</a> · 
+            <a href="https://instagram.com/mardemorere" style="color:#888;">Instagram</a>
+        </p>
+    </footer>
+</body>
+</html>
